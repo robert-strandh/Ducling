@@ -1,7 +1,6 @@
 (cl:in-package #:ducling)
 
 (defclass map () ())
-  
 
 (defclass hash-table-map (map)
   ((%contents :initarg :contents :reader contents)))
@@ -18,6 +17,13 @@
       (change-class map 'alist-map
 		    :contents '()
 		    :test test)))
+
+(defclass entry ()
+  ((%value :initarg :value :reader value)))
+
+(defclass map-entry (entry) ())
+
+(defclass object-entry (entry) ())
 
 (defgeneric add-map (map-to-add into-map key))
 
