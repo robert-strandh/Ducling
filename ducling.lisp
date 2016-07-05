@@ -29,10 +29,10 @@
 
 (defmethod add-map ((map-to-add map) (into-map alist-map) key)
   (with-accessors ((contents contents) (test test)) into-map
-    (let ((existing-entry (assoc key contents :test test)))
-      (if (null existing-entry)
+    (let ((existing-cell (assoc key contents :test test)))
+      (if (null existing-cell)
 	  (push (cons key map-to-add) contents)
-	  (setf (cdr existing-entry) map-to-add))))
+	  (setf (cdr existing-cell) map-to-add))))
   map-to-add)
 
 (defmethod add-map ((map-to-add map) (into-map hash-table-map) key)
