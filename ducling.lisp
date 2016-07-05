@@ -40,3 +40,5 @@
   (setf (gethash key (contents into-map))
 	(make-instance 'map-entry :vale map-to-add))
   map-to-add)
+
+(defgeneric add-object (object into-map key))
