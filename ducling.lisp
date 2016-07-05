@@ -19,3 +19,4 @@
 		    :contents '()
 		    :test test)))
 
+(defgeneric add-map (map-to-add into-map key))
