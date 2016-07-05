@@ -28,3 +28,8 @@
 	  (push (cons key map-to-add) contents)
 	  (setf (cdr existing-entry) map-to-add))))
   map-to-add)
+
+(defmethod add-map ((map-to-add map) (into-map hash-table-map) key)
+  (setf (gethash key (contents into-map))
+	map-to-add)
+  map-to-add)
