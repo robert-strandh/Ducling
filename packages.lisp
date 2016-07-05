@@ -5,4 +5,5 @@
   (:shadow #:map)
   (:export
    #:map
-   #:add-map))
+   #:add-map
+   #:add-object))
