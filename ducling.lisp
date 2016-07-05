@@ -20,3 +20,11 @@
 		    :test test)))
 
 (defgeneric add-map (map-to-add into-map key))
+
+(defmethod add-map ((map-to-add map) (into-map alist-map) key)
+  (with-accessors ((contents contents) (test test)) into-map
+    (let ((existing-entry (assoc key contents :test test)))
+      (if (null existing-entry)
+	  (push (cons key map-to-add) contents)
+	  (setf (cdr existing-entry) map-to-add))))
+  map-to-add)
