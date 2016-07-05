@@ -3,4 +3,4 @@
 (defsystem :ducling
   :serial t
   :components
-  ())
+  ((:file "packages")))
