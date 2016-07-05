@@ -30,7 +30,7 @@
 (defmethod add-map ((map-to-add map) (into-map alist-map) key)
   (with-accessors ((contents contents) (test test)) into-map
     (let ((existing-cell (assoc key contents :test test))
-	  (entry (make-instance 'map-entry :vale map-to-add)))
+	  (entry (make-instance 'map-entry :value map-to-add)))
       (if (null existing-cell)
 	  (push (cons key entry) contents)
 	  (setf (cdr existing-cell) entry))))
@@ -38,7 +38,16 @@
 
 (defmethod add-map ((map-to-add map) (into-map hash-table-map) key)
   (setf (gethash key (contents into-map))
-	(make-instance 'map-entry :vale map-to-add))
+	(make-instance 'map-entry :value map-to-add))
   map-to-add)
 
 (defgeneric add-object (object into-map key))
+
+(defmethod add-object (object (into-map alist-map) key)
+  (with-accessors ((contents contents) (test test)) into-map
+    (let ((existing-cell (assoc key contents :test test))
+	  (entry (make-instance 'object-entry :value object)))
+      (if (null existing-cell)
+	  (push (cons key entry) contents)
+	  (setf (cdr existing-cell) entry))))
+  object)
