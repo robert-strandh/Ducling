@@ -3,4 +3,5 @@
 (defpackage ducling
   (:use #:common-lisp)
   (:shadow #:map)
-  (:export))
+  (:export
+   #:map))
