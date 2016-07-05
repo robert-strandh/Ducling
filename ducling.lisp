@@ -51,3 +51,8 @@
 	  (push (cons key entry) contents)
 	  (setf (cdr existing-cell) entry))))
   object)
+
+(defmethod add-object (object (into-map hash-table-map) key)
+  (setf (gethash key (contents into-map))
+	(make-instance 'object-entry :value object))
+  object)
