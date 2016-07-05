@@ -1,0 +1,11 @@
+Ducling is a library that provides a data structure that can be
+thought of as a multi-level map.  As such, it takes a sequence of
+objects and either returns an object or reports failure.
+
+The objects in the sequence are typically supplied one at a time, and
+at each stage in the process, it is possible to issue a query to
+determine what possible next object will result in a success.
+
+The typical use case for this library, which is why it was writtin, is
+to map sequences of keystrokes to commands in an Emacs-like text
+editor.
