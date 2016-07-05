@@ -4,4 +4,5 @@
   (:use #:common-lisp)
   (:shadow #:map)
   (:export
-   #:map))
+   #:map
+   #:add-map))
