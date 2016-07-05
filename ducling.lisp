@@ -29,13 +29,14 @@
 
 (defmethod add-map ((map-to-add map) (into-map alist-map) key)
   (with-accessors ((contents contents) (test test)) into-map
-    (let ((existing-cell (assoc key contents :test test)))
+    (let ((existing-cell (assoc key contents :test test))
+	  (entry (make-instance 'map-entry :vale map-to-add)))
       (if (null existing-cell)
-	  (push (cons key map-to-add) contents)
-	  (setf (cdr existing-cell) map-to-add))))
+	  (push (cons key entry) contents)
+	  (setf (cdr existing-cell) entry))))
   map-to-add)
 
 (defmethod add-map ((map-to-add map) (into-map hash-table-map) key)
   (setf (gethash key (contents into-map))
-	map-to-add)
+	(make-instance 'map-entry :vale map-to-add))
   map-to-add)
