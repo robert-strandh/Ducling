@@ -7,4 +7,5 @@
    #:map
    #:add-map
    #:add-object
-   #:object))
+   #:object
+   #:make-initial-state))
