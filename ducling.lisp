@@ -70,3 +70,5 @@
   (make-instance 'internal-state
     :path '()
     :map map))
+
+(defgeneric advance (internal-state key))
