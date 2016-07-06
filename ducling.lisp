@@ -88,3 +88,5 @@
   (let ((entry (gethash key (contents map)))
 	(new-path (append path (list key))))
     (advance-with-entry entry new-path)))
+
+(defgeneric advance-with-entry (entry path))
