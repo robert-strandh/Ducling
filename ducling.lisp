@@ -66,6 +66,9 @@
 (defclass final-state (state)
   ((%object :initarg :object :reader object)))
 
+(defclass error-state (state)
+  ())
+
 (defun make-initial-state (map)
   (make-instance 'internal-state
     :path '()
