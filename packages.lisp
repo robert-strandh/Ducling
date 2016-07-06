@@ -12,6 +12,7 @@
    #:state
    #:internal-state
    #:final-state
+   #:error-state
    #:advance
    #:advance-in-map
    #:advance-with-entry))
