@@ -72,3 +72,6 @@
     :map map))
 
 (defgeneric advance (internal-state key))
+
+(defmethod advance ((state internal-state) key)
+  (advance-in-map (map state) key (path state)))
