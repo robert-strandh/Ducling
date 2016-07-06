@@ -83,3 +83,8 @@
 	 (entry (cdr cell))
 	 (new-path (append path (list key))))
     (advance-with-entry entry new-path)))
+
+(defmethod advance-in-map ((map hash-table-map) key path)
+  (let ((entry (gethash key (contents map)))
+	(new-path (append path (list key))))
+    (advance-with-entry entry new-path)))
