@@ -90,3 +90,8 @@
     (advance-with-entry entry new-path)))
 
 (defgeneric advance-with-entry (entry path))
+
+(defmethod advance-with-entry ((entry map-entry) path)
+  (make-instance 'internal-state
+    :map (value entry)
+    :path path))
