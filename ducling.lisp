@@ -77,3 +77,9 @@
   (advance-in-map (map state) key (path state)))
 
 (defgeneric advance-in-map (map key path))
+
+(defmethod advance-in-map ((map alist-map) key path)
+  (let* ((cell (assoc key (contents map) :test (test map)))
+	 (entry (cdr cell))
+	 (new-path (append path (list key))))
+    (advance-with-entry entry new-path)))
