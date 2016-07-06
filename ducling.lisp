@@ -76,6 +76,10 @@
 
 (defgeneric advance (internal-state key))
 
+(defmethod advance ((state state) key)
+  (make-instance 'error-state
+    :path (append (path state) (list key))))
+
 (defmethod advance ((state internal-state) key)
   (advance-in-map (map state) key (path state)))
 
