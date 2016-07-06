@@ -95,3 +95,8 @@
   (make-instance 'internal-state
     :map (value entry)
     :path path))
+
+(defmethod advance-with-entry ((entry object-entry) path)
+  (make-instance 'final-state
+    :object (value entry)
+    :path path))
