@@ -9,6 +9,9 @@
    #:add-object
    #:object
    #:make-initial-state
+   #:state
+   #:internal-state
+   #:final-state
    #:advance
    #:advance-in-map
    #:advance-with-entry))
