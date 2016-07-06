@@ -8,4 +8,7 @@
    #:add-map
    #:add-object
    #:object
-   #:make-initial-state))
+   #:make-initial-state
+   #:advance
+   #:advance-in-map
+   #:advance-with-entry))
