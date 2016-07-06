@@ -56,3 +56,12 @@
   (setf (gethash key (contents into-map))
 	(make-instance 'object-entry :value object))
   object)
+
+(defclass state ()
+  ((%path :initarg :path :reader path)))
+
+(defclass internal-state (state)
+  ((%map :initarg :map :reader map)))
+
+(defclass final-state (state)
+  ((%object :initarg :object :reader object)))
