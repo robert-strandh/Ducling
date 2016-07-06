@@ -6,4 +6,5 @@
   (:export
    #:map
    #:add-map
-   #:add-object))
+   #:add-object
+   #:object))
