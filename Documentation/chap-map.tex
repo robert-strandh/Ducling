@@ -58,3 +58,12 @@ two need not have been created using the same \texttt{:test}
 initialization argument.  The argument \texttt{key} must be a key that
 can be compared with the \texttt{:test} function supplied when
 \texttt{into-map} was created.
+
+\Defgeneric {add-object} {object into-map key}
+
+This generic function is used by client code to add \texttt{object} as
+a leaf object of \texttt{into-map} associated with \texttt{key}.  The
+argument \texttt{into-map} must be an implementation subclass of the
+class \texttt{map}.  The argument \texttt{key} must be a key that can
+be compared with the \texttt{:test} function supplied when
+\texttt{into-map} was created.
