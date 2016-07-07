@@ -48,3 +48,21 @@ This function creates an instance of the class
 (as returned by the generic function \texttt{map}) is the argument
 \texttt{map}, and the path associated with that internal state (as
 returned by the generic function \texttt{path}) is the empty list.
+
+\Defgeneric {advance} {internal-state key}
+
+This generic function is used to advance from one state to another.
+The argument \texttt{key} is used in the map associated with
+\texttt{internal-state} (as returned by the generic function
+\texttt{map}) to look up the entity being mapped to.  If that entity
+is another map, then this function returns an instance of the class
+\texttt{internal-state}.  If that entity is a leaf object, then this
+function returns an instance of the class \texttt{final-state}.  If
+there is no entity associated with \emph{key} in the map associated
+with \texttt{internal-state}, then an instance of the class
+\texttt{error-state} is returned.
+
+In all cases, the path of the resulting state (as returned by the
+generic function \texttt{path}) is the path resulting from adding
+\texttt{key} to the end of the path associated with
+\texttt{internal-state}.
