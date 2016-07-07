@@ -41,3 +41,10 @@ situation where the sequence of keys supplied so far contains at least
 one key that is associated with neither another map nor with a leaf
 object in the corresponding map.
 
+\Defun {make-initial-state} {map}
+
+This function creates an instance of the class
+\texttt{internal-state}.  The map associated with that internal state
+(as returned by the generic function \texttt{map}) is the argument
+\texttt{map}, and the path associated with that internal state (as
+returned by the generic function \texttt{path}) is the empty list.
