@@ -1,0 +1,21 @@
+\chapter{Package}
+
+A single package named \texttt{ducling} is provided by \sysname{}.  We
+recommend that this package not be used (in the sense of
+\texttt{use-package} or the \texttt{:use} option to
+\texttt{defpackage}) by client code.  Instead we recommend using
+explicit package prefixes whenever a symbol in the \texttt{ducling}
+package is referred to by client code.
+
+The reason for this recommendation is that the package named
+\texttt{ducling} exports (and therefore also \emph{shadows}) names
+that would class with names of symbols in the package named
+\texttt{common-lisp}.  Furthermore, we reserve the right to add more
+such names in the future.
+
+Alternatively, client code can selectively import documented names
+from the package named \texttt{ducling} as long as names that class
+with symbols in the \texttt{common-lisp} package are properly
+shadowed.  This technique may not be practical if, for instance,
+client code needs to simultaneously refer to the symbol
+\texttt{ducling:map} and the symbol \texttt{common-lisp:map}.
