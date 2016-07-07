@@ -10,3 +10,34 @@ being mapped to can either be another map, or some \emph{leaf
 \Defprotoclass {map}
 
 This class is the protocol class for all maps.
+
+Client code can use \texttt{make-instance}, passing this class or the
+name of this class as an argument.
+
+\Definitarg {:test}
+
+Client code can pass this initialization argument to
+\texttt{make-instance} in order to choose a function for comparing
+keys in the map.  The default value of this initialization argument is
+the function named \texttt{eql}.
+
+\sysname{} automatically chooses an implementation class based on the
+value of the \texttt{:test} initialization argument.  If the value is
+a function or the name of a function that is acceptable to
+\texttt{make-hash-table}, then \sysname{} returns a map that uses a
+hash table.  Otherwise it returns a map using an association list.
+
+\Defclass {hash-table-map}
+
+This class is a subclass of the class \texttt{map}.  It is returned
+from a call to \texttt{make-instance} when either no initialization
+argument is supplied, or when the initialization argument
+\texttt{:test} is supplied, and its value is acceptable as the
+\texttt{:test} argument for \texttt{make-hash-table}.
+
+\Defclass {alist-map}
+
+This class is a subclass of the class \texttt{map}.  It is returned
+from a call to \texttt{make-instance} when the initialization argument
+\texttt{:test} is supplied, and its value is \emph{not} acceptable as
+the \texttt{:test} argument for \texttt{make-hash-table}.
