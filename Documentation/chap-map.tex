@@ -41,3 +41,20 @@ This class is a subclass of the class \texttt{map}.  It is returned
 from a call to \texttt{make-instance} when the initialization argument
 \texttt{:test} is supplied, and its value is \emph{not} acceptable as
 the \texttt{:test} argument for \texttt{make-hash-table}.
+
+In order to allow for client code to map some sequence of keys to any
+\commonlisp{} object as a leaf object, including a \sysname{} map, we
+do not allow for client code to directly manipulate the \texttt{map}
+instances.  Instead, we supply specific generic functions for this
+purpose.
+
+\Defgeneric {add-map} {map-to-add into-map key}
+
+This generic function is used by client code to add
+\texttt{map-to-add} as a sub-map of \texttt{into-map} associated with
+\texttt{key}.  The arguments \texttt{map-to-add} and \texttt{into-map}
+must be implementation subclasses of the class \texttt{map}, but the
+two need not have been created using the same \texttt{:test}
+initialization argument.  The argument \texttt{key} must be a key that
+can be compared with the \texttt{:test} function supplied when
+\texttt{into-map} was created.
