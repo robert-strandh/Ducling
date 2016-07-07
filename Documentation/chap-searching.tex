@@ -1,0 +1,43 @@
+\chapter{Searching maps}
+
+Client code does not manipulate maps directly.  Instead, it uses some
+\emph{state} object supplied by \sysname{}.
+
+\Defprotoclass {state}
+
+This class is the protocol class for all states.
+
+\Defgeneric {path} {state}
+
+This generic function returns a \emph{path}, i.e. a list of keys that
+have been supplied so far, and that resulted in \texttt{state}.
+
+\Defclass {internal-state}
+
+This class is a subclass of the class \texttt{state}.  It represents a
+\emph{partial result} in that the sequence of keys supplied to the
+search so far corresponds to a map, and not to a leaf object.
+
+\Defgeneric {map} {internal-state}
+
+Given an internal state, this generic function returns the map
+associated with that state.
+
+\Defclass {final-state}
+
+This class is a subclass of the class \texttt{state}.  It represents a
+\emph{final result} in that the sequence of keys supplied so far
+corresponds to a leaf object.
+
+\Defgeneric {object} {final-state}
+
+Given a final state, this generic function returns the leaf object
+associated with that state.
+
+\Defclass {error-state}
+
+This class is a subclass of the class \texttt{state}.  It represents a
+situation where the sequence of keys supplied so far contains at least
+one key that is associated with neither another map nor with a leaf
+object in the corresponding map.
+
