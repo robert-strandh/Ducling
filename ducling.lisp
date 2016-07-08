@@ -112,3 +112,6 @@
 
 (defmethod possible-completions ((state error-state))
   '())
+
+(defmethod possible-completions ((state final-state))
+  '())
