@@ -124,3 +124,6 @@
 
 (defmethod possible-completions-in-map ((map alist-map))
   (mapcar #'car (contents map)))
+
+(defmethod possible-completions ((state internal-state))
+  (possible-completions-in-map (map state)))
