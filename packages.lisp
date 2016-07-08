@@ -15,4 +15,5 @@
    #:error-state
    #:advance
    #:advance-in-map
-   #:advance-with-entry))
+   #:advance-with-entry
+   #:possible-completions))
