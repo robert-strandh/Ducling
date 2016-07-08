@@ -121,3 +121,6 @@
 (defmethod possible-completions-in-map ((map hash-table-map))
   (loop for key being each hash-key of (contents map)
 	collect key))
+
+(defmethod possible-completions-in-map ((map alist-map))
+  (mapcar #'car (contents map)))
