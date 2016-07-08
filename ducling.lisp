@@ -109,3 +109,6 @@
     :path path))
 
 (defgeneric possible-completions (state))
+
+(defmethod possible-completions ((state error-state))
+  '())
