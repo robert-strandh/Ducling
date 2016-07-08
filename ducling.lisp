@@ -117,3 +117,7 @@
   '())
 
 (defgeneric possible-completions-in-map (map))
+
+(defmethod possible-completions-in-map ((map hash-table-map))
+  (loop for key being each hash-key of (contents map)
+	collect key))
