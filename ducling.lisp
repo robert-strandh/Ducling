@@ -107,3 +107,5 @@
   (make-instance 'final-state
     :object (value entry)
     :path path))
+
+(defgeneric possible-completions (state))
