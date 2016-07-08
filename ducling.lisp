@@ -115,3 +115,5 @@
 
 (defmethod possible-completions ((state final-state))
   '())
+
+(defgeneric possible-completions-in-map (map))
