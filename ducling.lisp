@@ -19,6 +19,11 @@
 		    :contents '()
 		    :test test)))
 
+;;; A map does not directly contain leaf objects or other maps.  If it
+;;; did, it would not be possible to have a map as a leaf object.
+;;; Instead, the map contains instances of this class, and the exact
+;;; subclass determines whether the value is another map or a leaf
+;;; object.
 (defclass entry ()
   ((%value :initarg :value :reader value)))
 
