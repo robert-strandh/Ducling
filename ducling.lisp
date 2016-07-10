@@ -1,5 +1,6 @@
 (cl:in-package #:ducling)
 
+;;; This protocol class is the base class for all maps.
 (defclass map () ())
 
 (defclass hash-table-map (map)
