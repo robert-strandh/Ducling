@@ -70,8 +70,8 @@ generic function \texttt{path}) is the path resulting from adding
 \Defgeneric {possible-completions} {state}
 
 This generic function returns a set of keys (represented as a list),
-each of which can be as the second argument to the generic function
-\texttt{advance} when the first argument is \texttt{state}.  If
-\texttt{state} is not an instance of the class named
+each of which can be used as the second argument to the generic
+function \texttt{advance} when the first argument is \texttt{state}.
+If \texttt{state} is not an instance of the class named
 \texttt{internal-state}, or if there are no keys in the map associated
 with \texttt{state}, then the empty list is returned.
